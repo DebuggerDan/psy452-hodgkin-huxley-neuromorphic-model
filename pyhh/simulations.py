@@ -24,7 +24,7 @@ class Simulation:
             warnings.warn("step sizes < 0.05 ms are recommended")
         assert isinstance(stimulusWaveform, np.ndarray)
         self.CreateArrays(len(stimulusWaveform), stepSizeMs)
-        print(f"simulating {len(stimulusWaveform)} time points...")
+        print(f"Simulating {len(stimulusWaveform)} time points...")
         for i in range(len(stimulusWaveform)):
             self.model.iterate(stimulusWaveform[i], stepSizeMs)
             self.Vm[i] = self.model.Vm
@@ -34,7 +34,7 @@ class Simulation:
             self.StateH[i] = self.model.h.state
             self.StateM[i] = self.model.m.state
             self.StateN[i] = self.model.n.state
-        print("simulation complete")
+        print("Simulation complete!")
 
 
 assert __name__ != "__main__", "do not execute this module (only import it)"
